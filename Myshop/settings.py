@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
-    'easy_thumbnails',
+    'easy_thumbnails', # Работы с изображениями
     'cart', # Добавяем приложение для корзины
+    'orders', # Заказы
 ]
 
 MIDDLEWARE = [
