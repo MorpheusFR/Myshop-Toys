@@ -1,7 +1,7 @@
 {% extends "shop/base.html" %}
 
 {% block title %}
-  Ваша корзина товаров
+    Ваша корзина товаров
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,18 @@
                     </a>
                 </td>
                 <td>{{ product.name }}</td>
-                <td>{{ item.quantity }}</td>
+                <td>
+                    {% comment %}
+                    {{ item.quantity }}
+                    {% endcomment %}
+                    <form action="{% url "cart:CartAdd" product.id %}" method="post" class="add">
+                        {{ item.update_quantity_form.quantity }}
+                        {{ item.update_quantity_form.update }}
+                        {% csrf_token %}
+                        <input type="submit" value="Обновить">
+                    </form>
+
+                </td>
                 <td><a href="{% url "cart:CartRemove" product.id %}">Удалить</a></td>
                 <td class="num">{{ item.price }} грн.</td>
                 <td class="num">{{ item.total_price }} грн.</td>

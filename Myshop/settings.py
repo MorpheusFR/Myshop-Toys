@@ -62,10 +62,16 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug', # помещает отладочную информацию в шаблон
+                # Если он подключен, то вы сможете использовать следующие переменные в шаблоне: debug - булева переменная, sql_queries - список словарей с SQL запросами.
+                'django.template.context_processors.request', # Cодержит переменную request, которая отвечает за запросы к серверу
+                'django.contrib.auth.context_processors.auth', # процессор нужный для работы с авторизацией пользователя. В шаблоне можно использовать:
+                #user - переменная предоставляющая авторизированного пользователя. Экземпляр класса django.contrib.auth.models.User.
+                # Когда пользователь не авторизирован, то user будет экземпляром AnonymousUser.
+                # perms - права текущего пользователя
+                # messages - сообщения текущего пользователя
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart'# Процессор в cart/context_processor
             ],
         },
     },
