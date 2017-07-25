@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from .models import OrderItem
+from django.shortcuts import render, get_object_or_404
+from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cart.cart import Cart
+from django.contrib.admin.views.decorators import staff_member_required
 
 
 def OrderCreate(request):
@@ -20,3 +21,10 @@ def OrderCreate(request):
     form = OrderCreateForm()
     return render(request, 'orders/order/create.html', {'cart': cart,
                                                         'form': form})
+
+@staff_member_required
+# декоратор, который проверяет, если пользователь зарегистрирован и имеет доступ к интерфейсу администратора.
+# Сама же функция AdminOrderDetail() принимает идентификатор заказа и рендерит страницу с этим заказом.
+def AdminOrderDetail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    return render(request, 'orders/order/detail.html', {'order': order})
