@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block content %}
+
+    <h4>Дата публикации:{{ article.article_date }}</h4>
+    <h2>{{ article.article_title }}</h2>
+    <p>{{ article.article_text }}</p>
+    <p>Likes:{{ article.article_likes }}</p>
+    <hr>
+
+    {% for comment in comments %}
+
+        <h6>Дата публикации:{{ article.article_date }}</h6>
+        <h4><a>{{ comment.comments_text }}</a></h4>
+
+    {% endfor %}
+
+{% endblock %}

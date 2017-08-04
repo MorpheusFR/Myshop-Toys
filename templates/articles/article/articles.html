@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block content %}
+
+    {% for article in articles %}
+        <h6>Дата публикации:{{ article.article_date }}</h6>
+        <h4><a href="/articles/get/{{ article.id }}" ></href>{{ article.article_title }}</a></h4>
+        <p>{{ article.article_text }}</p>
+        <p>Likes:{{ article.article_likes }}</p>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
