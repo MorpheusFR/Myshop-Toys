@@ -1,8 +1,9 @@
-{% load static %}
 {% comment %}
 {% load static %} - сообщает Django, что следует загружать статические файлы из директории приложения, то есть shop
 {% endcomment %}
 
+
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +13,20 @@
         {% block title %}{% endblock %}
     </title>
     <!-- Styles -->
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-theme.css" %}">
+
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+{% comment %}
+{% endcomment %}
+
 </head>
 <body>
     <section id="header">
         <div class="top container">
-            {% comment %}
             <a href="{% url "shop:ProductList" %}">Kids Landing</a>
-            {% endcomment %}
         </div>
         <div class="top-bl">
             <div class="container">

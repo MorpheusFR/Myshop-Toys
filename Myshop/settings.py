@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', # Статитчные файлы
     'shop.apps.ShopConfig',
     'easy_thumbnails', # Работы с изображениями
     'cart', # Добавяем приложение для корзины
@@ -135,3 +135,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+#     '/home/morpheus/PycharmProjects/Myshop/static',
+#     # '/var/www/static',
+# ]
