@@ -8,7 +8,7 @@ class Article(models.Model): # Статья
         db_table = 'article'
 
     article_title = models.CharField(max_length=200)
-    article_text = models.TextField()
+    article_text = models.TextField(verbose_name='Текст статьи')
     article_date = models.DateTimeField()
     article_likes = models.IntegerField(default=0, editable=False) # editable - скрывает поле в админке
 
