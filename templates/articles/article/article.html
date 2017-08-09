@@ -20,9 +20,10 @@
         <h4><p>{{ comment.comments_text }}</p></h4>
 
     {% endfor %}
+
     <form action="/article/add_comment/{{ article.id }}" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.comments_text }}
         <input type="submit" class="button" value="Добавить комментарий">
     </form>
 

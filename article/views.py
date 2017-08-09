@@ -33,7 +33,7 @@ def articles(request):
     return render_to_response('articles/article/articles.html', {'articles': Article.objects.all()})
 
 
-# @csrf
+
 def article(request, article_id=1):
     comment_form = CommentsForm
     args = {}
