@@ -136,8 +136,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-#     '/home/morpheus/PycharmProjects/Myshop/static',
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/home/morpheus/PycharmProjects/Myshop/static',
 #     # '/var/www/static',
-# ]
+ ]

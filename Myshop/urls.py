@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^order/', include('orders.urls', namespace='orders')), # Заказы
-    url(r'^articles/', include('article.urls', namespace='articles')), # Статьи
+    url(r'^articles/', include('article.urls')), # Статьи
     url(r'^', include('shop.urls', namespace='shop')),
 
 ]

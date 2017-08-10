@@ -5,11 +5,12 @@ from article.models import Article, Comments
 
 class ArticleInline(admin.StackedInline):
     model = Comments
-    extra = 1 # Добавляем в админку коммент
+    extra = 2 # Добавляем в админку коммент
 
 
 class ArticleAdmin(admin.ModelAdmin): # отображение статей для админки
     inlines = [ArticleInline]
+    #list_display = ['title']
     list_filter = ['article_date'] # ADD в админку для фильтрования
 
-admin.site.register(Article, ArticleAdmin) # Регестрируем статьикге в админку
+admin.site.register(Article, ArticleAdmin) # Регестрируем статьи в админку

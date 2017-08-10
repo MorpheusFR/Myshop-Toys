@@ -1,11 +1,12 @@
 {% extends "shop/base.html" %}
+
 {% load staticfiles %}
 
 {% block title %}
     {{ name }}
 {% endblock %}
 
-{% block content %}
+{% block content_article %}
 
     {% for article in articles %}
         <h6>Дата публикации:{{ article.article_date }}</h6>

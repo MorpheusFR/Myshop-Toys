@@ -23,6 +23,12 @@
             </li>
         {% endfor %}
     </ul>
+    <h3>Статьи</h3>
+    <ul>
+        <li>
+            <a href="{% url "articles:articles_all" %}">Все</a>
+        </li>
+    </ul>
     </div>
     <div id="main" class="product_list col-sm-9">
         <h1>{% if category %}{{ category.name }}{% else %}Товары{% endif %}</h1>

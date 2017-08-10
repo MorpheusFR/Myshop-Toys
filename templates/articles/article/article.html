@@ -1,13 +1,12 @@
 {% extends "shop/base.html" %}
-{% load static %}
-{% load staticfiles %}
 
+{% load staticfiles %}
 
 {% block title %}
     {{ name }}
 {% endblock %}
 
-{% block content %}
+{% block content_article %}
 
     <h4>Дата публикации:{{ article.article_date }}</h4>
     <h2>{{ article.article_title }}</h2>
@@ -21,10 +20,10 @@
 
     {% endfor %}
 
-    <form action="/article/add_comment/{{ article.id }}" method="post">
+    <form action="/articles/add_comment/{{ article.id }}" method="post">
         {% csrf_token %}
-        {{ form.comments_text }}
-        <input type="submit" class="button" value="Добавить комментарий">
+        {{ form }}
+        <input type="submit" class="button" value="Добавить комментарий" />
     </form>
 
 {% endblock %}
