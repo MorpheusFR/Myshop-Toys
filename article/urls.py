@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^get/(?P<article_id>\d+)/$', views.article),  # Статья по переходу
     url(r'^add_like/(?P<article_id>\d+)/$', views.add_like),
     url(r'^add_comment/(?P<article_id>\d+)/$', views.add_comment),
+    #url(r'^add_comment/(?P<article_id>\d+)/$', views.article),
 
 ]

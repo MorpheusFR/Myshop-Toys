@@ -10,7 +10,7 @@ class ArticleInline(admin.StackedInline):
 
 class ArticleAdmin(admin.ModelAdmin): # отображение статей для админки
     inlines = [ArticleInline]
-    #list_display = ['title']
     list_filter = ['article_date'] # ADD в админку для фильтрования
+
 
 admin.site.register(Article, ArticleAdmin) # Регестрируем статьи в админку
