@@ -24,5 +24,6 @@ class Comments(models.Model):
         db_table = 'comments'
 
     comments_text = models.TextField(verbose_name='Комментарий', max_length=400)
+    comments_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     comments_article = models.ForeignKey(Article)#, editable=False) # Связь с таблицей статей
 

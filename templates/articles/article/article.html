@@ -14,11 +14,11 @@
 
     {% for comment in comments %}
 
-        <h6>Дата публикации:{{ article.article_date }}</h6>
+        <h6>Дата публикации:{{ comment.comments_date }}</h6>
         <h4><p>{{ comment.comments_text }}</p></h4>
 
     {% endfor %}
-
+    {% if username %}
     <form action="/articles/add_comment/{{ article.id }}/" method="post">
 
         {% csrf_token %}
@@ -27,5 +27,5 @@
         {{ form_comments.as_p }}
         <input type="submit" class="button" value="Добавить комментарий" />
     </form>
-
+    {% endif %}
 {% endblock %}

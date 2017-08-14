@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'cart', # Добавяем приложение для корзины
     'orders', # Заказы
     'article', # Статьи
+    'loginsys',
 ]
 
 MIDDLEWARE = [
