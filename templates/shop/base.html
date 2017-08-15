@@ -29,10 +29,10 @@
 </head>
 <body>
     <div class="top-bar">
-    <section class="top-bar-section">
-        <ul class="right">
+    <section class="top-bar-right">
+        <ul class="menu">
         {% if username %}
-            <li><a href="/auth/logout/">Logout ({{ auth_user.username }})</a></li>
+            <li><a href="/auth/logout/">Logout ({{ username }})</a></li>
         {% else %}
             <li>
                 <a href="/auth/login/">Login</a>
