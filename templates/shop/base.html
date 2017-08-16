@@ -32,16 +32,16 @@
     <section class="top-bar-right">
         <ul class="menu">
         {% if username %}
-            <li><a href="/auth/logout/">Logout ({{ username }})</a></li>
+            <li><a href="{% url "auth:logout" %}">Logout ({{ username }})</a></li>
         {% else %}
             <li>
-                <a href="/auth/login/">Login</a>
+                <a href="{% url "auth:login" %}">Login</a>
             </li>
         {% endif %}
         </ul>
     </section>
     </div>
-    </nav>
+
     <section id="header">
         <div class="top container">
             <a href="{% url "shop:ProductList" %}">Kids Landing</a>

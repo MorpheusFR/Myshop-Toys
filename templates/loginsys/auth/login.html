@@ -1,8 +1,10 @@
 {% extends "shop/base.html" %}
 
+{% load staticfiles %}
+
 {% block login %}
     <div class="large-offset-3 large-order-6 columns">
-        <form action="login.html" method="post">
+        <form action="{% url "auth:login" %}" method="post">
             {% csrf_token %}
             <label for="username">Имя пользователя</label>
             <input type="text" name="username" id="username">
@@ -12,7 +14,7 @@
                 <label class="errors">{{ login_error }}</label>
             {% endif %}
             <input class="button" type="submit" value="Войти">
-            <a href="/auth/register/" class="alert button right">Регистрация</a>
+            <a href="{% url "auth:register" %}" class="alert button right">Регистрация</a>
         </form>
     </div>
 {% endblock %}

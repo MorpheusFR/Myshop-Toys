@@ -1,9 +1,10 @@
 {% extends "shop/base.html" %}
 
+{% load staticfiles %}
 
 {% block login %}
     <div class="large-offset-3 large-order-6 columns">
-        <form action="register.html" method="post">
+        <form action="{% url "auth:register" %}" method="post">
             {% csrf_token %}
             {{ form }}
 

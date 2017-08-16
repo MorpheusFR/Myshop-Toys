@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^order/', include('orders.urls', namespace='orders')), # Заказы
     url(r'^articles/', include('article.urls', namespace='articles')), # Статьи
-    url(r'^auth/', include('loginsys.urls')),
+    url(r'^auth/', include('loginsys.urls', namespace='auth')),
     url(r'^', include('shop.urls', namespace='shop')),
 
 ]
