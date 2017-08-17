@@ -17,20 +17,27 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-theme.css" %}">
 
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+{% comment %}
+    {% endcomment %}
 
     <link rel="stylesheet" type="text/css" href="{% static "css/foundation.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/foundation.min.css" %}">
-    {% comment %}
-    {% endcomment %}
+
 
 </head>
 <body>
     <div class="top-bar">
-    <section class="top-bar-right">
+    <section class="top-bar-left">
         <ul class="menu">
+            <li class="is-active"><a href="{% url "shop:ProductList" %}">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="{% url "articles:articles_all" %}">Article</a></li>
+        </ul>
+    </section>
+    <section class="top-bar-right">
+        <ul class="menu right">
         {% if username %}
             <li><a href="{% url "auth:logout" %}">Logout ({{ username }})</a></li>
         {% else %}
@@ -64,10 +71,17 @@
             </div>
         </div>
     </section>
-    <section id="content row" class="container">
-        {% block content %}{% endblock %}
-        {% block content_article %}{% endblock %}
-        {% block login %}{% endblock %}
-        </section>
+    <div class="row">
+        <div class="small-6 large-2 columns"><!-- ... --></div>
+        <div class="small-6 large-8 columns">
+            <section id="content row" class="container">
+                {% block content %}{% endblock %}
+                {% block content_article %}{% endblock %}
+                {% block login %}{% endblock %}
+            </section>
+        </div>
+        <div class="small-12 large-2 columns"><!-- ... --></div>
+    </div>
+
 </body>
 </html>

@@ -7,6 +7,7 @@ from article.models import Article, Comments
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import CommentForm
 from django.template.context_processors import csrf
+from django.core.paginator import Paginator
 from django.contrib import auth
 
 
@@ -18,9 +19,12 @@ def template_one(request):
     return render_to_response('articles/article/article_view.html', {'name': view})
 
 
-def articles(request):
+def articles(request, page_number=1):
+    all_article = Article.objects.all() # Передаю в переменную все статьи
+    current_page = Paginator(all_article, 3) # Передача пагинатору всех статей и вывод 3 на страницу
     return render_to_response('articles/article/articles.html', {
-        'articles': Article.objects.all(), # Получаем все обьекты Статей
+        #'articles': Article.objects.all(), # Получаем все обьекты Статей
+        'articles': current_page.page(page_number),
         'username': auth.get_user(request).username, # Получаем юзера из реквеста
     })
 
@@ -74,6 +78,6 @@ def add_comment(request, article_id):
             comment = form.save(commit=False)
             comment.comments_article = Article.objects.get(id=article_id)
             form.save()
-            request.session.set_expiry(60) # Создает сессию и хранит ее 60 сек.
+            request.session.set_expiry(1200) # Создает сессию и хранит ее 20 мин. 00 сек.
             request.session['pause'] = True # Пауза сессии
     return redirect('/articles/get/%s' % article_id)
